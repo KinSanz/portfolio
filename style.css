@@ -626,3 +626,25 @@ body {
 .glitch {
     animation: glitch 0.5s infinite alternate;
 }
+
+/* ---- Correction des pop-ups "Créations Dev" en mode clair ---- */
+.light-mode #dev-details {
+    background: #ffffff; /* Fond clair */
+    color: #121212; /* Texte sombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Ajustement des listes noires dans le pop-up "Créations Dev" ---- */
+.light-mode #dev-details ul li {
+    background: #e0e0e0; /* Fond plus clair */
+    color: #121212; /* Texte plus sombre */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ---- Effet au survol des éléments interactifs ---- */
+.light-mode #dev-details ul li:hover {
+    background: #d6d6d6;
+}
