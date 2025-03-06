@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="glitch">Portfolio | Ryan Lapotre</h1>
+        <nav>
+            <ul>
+                <li><button id="theme-toggle">🌙 Mode sombre</button></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#cv">CV</a></li> <!-- Ajout du lien vers la section CV -->
+                <li><a href="#creations">Créations Dev</a></li>
+                <li><a href="#bts-alternance">BTS & Alternance</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section Profil -->
+    <section id="about" class="fade-in"></section>
+        <div class="profile-container">
+            <img src="images/profile.jpg" alt="Photo de Profil">
+        </div>
+        <h2>À Propos</h2>
+        <p>Bienvenue sur mon portfolio ! Je suis Ryan, passionné par le développement web et logiciel.</p>
+        <p>Issu d'un BAC STMG option SIG et d'un BTS SIO option SISR et passionné par le développement, je souhaite m'orienter vers ce domaine pour en faire ma carrière.</p>
+        <p>Je développe en C#, HTML/CSS et JavaScript.</p>
+        <p>Sur mon portfolio, vous trouverez mes projets mis en place pour mon BTS, mon CV, mes créations en cours ainsi qu'une présentation de mon BTS et mon alternance.</p>
+        <p>Enjoy !</p>
+    </section>
+
+    <hr>
+
+    <!-- Section Projets -->
+    <section id="projects" class="fade-in"></section>
+        <h2>Projets</h2>
+
+        <div class="projects-container">
+            <div class="project-card" onclick="showDetails('projet1')">
+                <h3>Création d'un Domaine Active Directory</h3>
+                <p>Installation et configuration d'Active Directory sous Windows Server 2019.</p>
+            </div>
+
+            <div class="project-card" onclick="showDetails('projet2')">
+                <h3>Migration d'un Domaine Active Directory</h3>
+                <p>Migration d'un contrôleur de domaine vers une nouvelle infrastructure.</p>
+            </div>
+        </div>
+
+        <div id="project-details" class="hidden">
+            <button onclick="closeDetails()">❌ Fermer</button>
+            <h3 id="project-title"></h3>
+            <p id="project-description"></p>
+            <div id="project-steps"></div>
+        </div>
+
+        <!-- Bouton de téléchargement de la doc technique -->
+<div class="doc-download-container">
+    <a href="assets/doctechnique.pdf" download="Documentation_ActiveDirectory.pdf" class="doc-download">
+        📄 Télécharger la Documentation Technique
+    </a>
+</div>
+    </section>
+
+    <hr>
+
+<!-- Nouvelle Section CV -->
+<section id="cv" class="fade-in"></section>
+    <h2>Mon CV</h2>
+    <div class="cv-flexbox">
+        <!-- CV à gauche -->
+        <div class="cv-left">
+            <div class="cv-container">
+                <img src="images/cv.png" alt="CV de [Ton Nom]">
+            </div>
+            <a href="images/cv.png" download="CV_[Ton_Nom].png" class="cv-download">📥 Télécharger le CV</a>
+        </div>
+
+        <!-- Liens à droite -->
+        <div class="cv-right">
+            <h3>Mes Réseaux</h3>
+            <a href="https://www.linkedin.com/in/ryan-lapotre-b4b5a6270/" target="_blank" class="cv-linkedin">
+                🔗 LinkedIn
+            </a>
+            <a href="https://github.com/KinSanz" target="_blank" class="cv-github">
+                💻 GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+
+<!-- Section Créations Dev -->
+<section id="creations" class="fade-in"></section> 
+    <h2>Créations Dev</h2>
+    
+    <!-- En cours de développement -->
+    <div class="dev-progress">
+        <p>En cours de développement ... ⏳</p>
+    </div>
+
+    <!-- Projets Dev -->
+    <div class="projects-container">
+        <!-- Projet 1 : ADConfigurator -->
+        <div class="project-card" onclick="showDevDetails('adconfigurator')">
+            <h3>Logiciel d'automatisation Active Directory</h3>
+            <p>ADConfigurator by KinSanz</p>
+        </div>
+    </div>
+
+    <!-- Détails des créations -->
+    <div id="dev-details" class="hidden">
+        <button onclick="closeDevDetails()">❌ Fermer</button>
+        <h3 id="dev-title"></h3>
+        <p id="dev-description"></p>
+        <div id="dev-steps"></div>
+    </div>
+</section>
+
+    <hr>
+
+<!-- Section BTS & Alternance -->
+<section id="bts-alternance" class="fade-in"></section>  
+    <h2>BTS & Alternance</h2>
+
+    <!-- Poste et Entreprise -->
+    <div class="bts-intro">
+        <h3>Technicien Support IT | Administrateur Systèmes & Réseaux</h3>
+        <div class="company-logo">
+            <img src="images/donaldson.png" alt="Donaldson">
+        </div>
+    </div>
+
+    <!-- Informations sur l'entreprise -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSDetails('company')">
+            <h3>📄 Voir les infos de l'entreprise</h3>
+        </div>
+    </div>
+
+    <div id="bts-details" class="hidden">
+        <button onclick="closeBTSDetails()">❌ Fermer</button>
+        <h3 id="bts-title"></h3>
+        <p id="bts-description"></p>
+        <div id="bts-content"></div>
+    </div>
+
+    <!-- Présence du groupe -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSDetails('presence')">
+            <h3>🌍​ Voir la présence du groupe</h3>
+        </div>
+    </div>
+
+    <!-- Missions en alternance -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSDetails('missions')">
+            <h3>📋 Mes missions</h3>
+        </div>
+    </div>
+</section>
+
+<!-- Section BTS SIO -->
+<section id="bts-sio">
+    <h2>BTS SIO</h2>
+
+    <!-- Le BTS SIO, c'est quoi ? -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSInfo('bts_definition', event, this)">
+            <h3>❓ Le BTS SIO, c'est quoi ?</h3>
+        </div>
+    </div>
+
+    <!-- Différences entre SISR et SLAM -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSInfo('sisr_vs_slam', event, this)">
+            <h3>🖥️ Quelles différences entre SISR et SLAM ?</h3>
+        </div>
+    </div>
+
+    <!-- Métiers après un BTS SIO -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSInfo('bts_metiers', event, this)">
+            <h3>🧑‍💻 Quels métiers après un BTS SIO ?</h3>
+        </div>
+    </div>
+
+    <!-- Qualités requises -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSInfo('bts_qualites', event, this)">
+            <h3>🧠​ Quelles sont les qualités requises pour réussir en BTS SIO ?</h3>
+        </div>
+    </div>
+
+    <!-- Poursuite d'études -->
+    <div class="projects-container">
+        <div class="project-card" onclick="showBTSInfo('bts_etudes', event, this)">
+            <h3>​📚 Peut-on poursuivre des études après un BTS SIO ?</h3>
+        </div>
+    </div>
+
+<!-- Détails du BTS SIO -->
+<div id="bts-sio-details" class="hidden">
+    <button onclick="closeBTSInfo()">❌ Fermer</button>
+    <h3 id="bts-sio-title"></h3>
+    <p id="bts-sio-description"></p>
+</div>
+
+<!-- Conteneur des détails BTS SIO -->
+<div id="bts-sio-details-container"></div>
+
+</section>
+
+
+<hr>
+
+<!-- Section Identité -->
+<section id="identity">
+    <div class="identity-container">
+        <!-- Image Ryan Lapotre -->
+        <div class="identity-item">
+            <img src="images/ryan.jpg" alt="Ryan Lapotre">
+            <p>Ryan Lapotre</p>
+        </div>
+
+        <!-- Texte Alias -->
+        <div class="identity-alias">
+            <p>alias</p>
+        </div>
+
+        <!-- Image KinSanz -->
+        <div class="identity-item">
+            <img src="images/profile.jpg" alt="KinSanz">
+            <p>KinSanz</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : <a href="ryan.lapotre@gmail.com" style="color:#00bcd4;">ryan.lapotre@gmail.com</a> |<a href="kinsanzfr@gmail.com" style="color:#00bcd4;">kinsanzfr@gmail.com</a></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

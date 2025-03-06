@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---- Effet néon sur les titres ---- */
+h1, h2 {
+    text-transform: uppercase;
+    color: #00bcd4;
+    text-shadow: 0px 0px 8px rgba(0, 188, 212, 0.8);
+}
+
+/* ---- Navigation ---- */
+header {
+    background: #1b1b1b;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ---- Sections ---- */
+section {
+    padding: 50px;
+}
+
+/* ---- Photo de Profil ---- */
+.profile-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #00bcd4;
+}
+
+/* ---- Cartes de Projet ---- */
+.projects-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: #1b1b1b;
+    padding: 20px;
+    width: 40%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.8);
+}
+
+/* ---- Détails du Projet ---- */
+#project-details {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+#project-steps li {
+    font-family: 'Courier New', monospace;
+    color: #00ff99;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#project-steps li::before {
+    content: ">> ";
+    color: #00ff99;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---- Bouton ---- */
+button {
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #008c9e;
+}
+
+#project-description {
+    font-family: 'Courier New', monospace;
+    white-space: pre-line; /* Conserve bien les espaces */
+    text-align: center; /* Centrage propre */
+}
+
+/* ---- Style de la section CV ---- */
+.cv-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cv-container img {
+    width: 60%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cv-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(0, 188, 212, 0.8);
+}
+
+/* ---- Mise en page flexible pour la section CV ---- */
+.cv-flexbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ---- CV à gauche ---- */
+.cv-left {
+    width: 50%;
+    text-align: center;
+}
+
+.cv-container img {
+    width: 80%; /* Taille réduite */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.cv-container img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.8);
+}
+
+/* ---- Centrage du bouton sous le CV ---- */
+.cv-left {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre tous les éléments en colonne */
+}
+
+.cv-download {
+    margin-top: 15px; /* Espace au-dessus */
+    width: 80%; /* Ajustement dynamique */
+    max-width: 200px; /* Taille maximale */
+}
+
+
+/* ---- Liens à droite ---- */
+.cv-right {
+    width: 40%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cv-right h3 {
+    color: #00bcd4;
+    text-transform: uppercase;
+}
+
+.cv-right a {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 150px;
+    text-align: center;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* ---- Style LinkedIn ---- */
+.cv-linkedin {
+    background-color: #0077b5;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 119, 181, 0.6);
+}
+
+.cv-linkedin:hover {
+    background-color: #005a8e;
+    box-shadow: 0px 0px 15px rgba(0, 119, 181, 1);
+}
+
+/* ---- Style GitHub ---- */
+.cv-github {
+    background-color: #24292e;
+    color: white;
+    box-shadow: 0px 0px 10px rgba(36, 41, 46, 0.6);
+}
+
+.cv-github:hover {
+    background-color: #181a1b;
+    box-shadow: 0px 0px 15px rgba(36, 41, 46, 1);
+}
+
+/* ---- Bouton de téléchargement ---- */
+.cv-download {
+    display: block;
+    text-align: center;
+    background-color: #00bcd4;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 15px;
+    width: 200px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.6);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.cv-download:hover {
+    background-color: #008c9e;
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 1);
+}
+
+/* ---- Section Identité ---- */
+.identity-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+/* ---- Style des images circulaires ---- */
+.identity-item img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #00bcd4;
+    box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.6);
+    transition: transform 0.3s ease-in-out;
+}
+
+.identity-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.9);
+}
+
+/* ---- Texte sous les images ---- */
+.identity-item p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #00bcd4;
+}
+
+/* ---- Texte alias au centre ---- */
+.identity-alias p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---- Section Créations Dev ---- */
+.dev-progress {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00bcd4;
+    margin-bottom: 30px;
+}
+
+/* ---- Interface interactive similaire aux projets ---- */
+#dev-details {
+    background: #1e1e1e;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+#dev-steps ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#dev-steps li {
+    background: #2c2c2c;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+#dev-steps li::before {
+    content: "✅ ";
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* ---- Bouton de téléchargement de la documentation ---- */
+.doc-download-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.doc-download {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.6);
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.doc-download:hover {
+    background-color: #008c9e;
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 1);
+}
+
+
+/* ---- Section BTS & Alternance ---- */
+.bts-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.company-logo img {
+    width: 200px;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 188, 212, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.company-logo img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.8);
+}
+
+/* ---- Contenu interactif ---- */
+#bts-details {
+    background: #1e1e1e;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+#bts-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bts-content li {
+    background: #2c2c2c;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+}
+
+#bts-content li::before {
+    content: "✅ ";
+    color: #00ff99;
+    font-weight: bold;
+}
+
+/* ---- Section BTS SIO ---- */
+#bts-sio {
+    margin-top: 50px;
+}
+
+/* ---- Contenu interactif BTS SIO ---- */
+#bts-sio-details {
+    background: #1e1e1e;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: none;
+}
+
+/* ---- Thème par défaut (sombre) ---- */
+:root {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1b1b1b;
+    --highlight: #00bcd4;
+}
+
+/* ---- Mode clair ---- */
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #121212;
+    --card-bg: #f4f4f4;
+    --highlight: #0077b5;
+}
+
+/* ---- Application des couleurs dynamiques ---- */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* ---- Bouton de changement de thème ---- */
+#theme-toggle {
+    background: var(--highlight);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+#theme-toggle:hover {
+    background: #008c9e;
+}
+
+/* ---- Cartes interactives (mode sombre) ---- */
+.project-card {
+    background: var(--card-bg);
+    padding: 20px;
+    width: 40%;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* ---- Ajustement pour le mode clair ---- */
+.light-mode .project-card {
+    background: #f4f4f4; /* Fond clair */
+    color: #121212; /* Texte sombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .project-card:hover {
+    background: #e0e0e0;
+}
+
+/* ---- Contenus interactifs (mode sombre) ---- */
+#project-details, #dev-details, #bts-details, #bts-sio-details {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-color);
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* ---- Ajustement pour le mode clair ---- */
+.light-mode #project-details,
+.light-mode #dev-details,
+.light-mode #bts-details,
+.light-mode #bts-sio-details {
+    background: #ffffff; /* Fond clair */
+    color: #121212; /* Texte sombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Ajustement des cartes interactives pour le mode clair ---- */
+.light-mode #bts-details {
+    background: #ffffff; /* Fond clair */
+    color: #121212; /* Texte sombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Pop-up dynamique BTS SIO ---- */
+.popup-content {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---- Mode clair pour les pop-ups ---- */
+.light-mode .popup-content {
+    background: #ffffff;
+    color: #121212;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Forcer le positionnement des pop-ups en colonne ---- */
+.popup-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le pop-up sous la carte */
+}
+
+/* ---- Style des pop-ups dynamiques ---- */
+.popup-content {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+}
+
+/* ---- Mode clair pour les pop-ups ---- */
+.light-mode .popup-content {
+    background: #ffffff;
+    color: #121212;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Correction des pop-ups de la section Alternance en mode clair ---- */
+.light-mode #bts-details {
+    background: #ffffff; /* Fond clair */
+    color: #121212; /* Texte sombre */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- Correction des listes noires dans le pop-up Alternance ---- */
+.light-mode #bts-details ul li {
+    background: #e0e0e0; /* Fond plus clair */
+    color: #121212; /* Texte plus sombre */
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ---- Effet au survol pour donner un aspect interactif ---- */
+.light-mode #bts-details ul li:hover {
+    background: #d6d6d6;
+}
+
+/* ---- Par défaut (mode sombre) ---- */
+.identity-alias p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* ---- Mode clair : le texte devient noir ---- */
+.light-mode .identity-alias p {
+    color: #121212;
+    text-shadow: none; /* Supprime l'effet lumineux en mode clair */
+}
+
+/* Animation fade-in */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Lorsqu'un élément devient visible */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes glitch {
+    0% { text-shadow: -2px 2px 0 #00ffea, 2px -2px 0 #ff007b; }
+    25% { text-shadow: 2px -2px 0 #00ffea, -2px 2px 0 #ff007b; }
+    50% { text-shadow: -2px -2px 0 #00ffea, 2px 2px 0 #ff007b; }
+    75% { text-shadow: 2px 2px 0 #00ffea, -2px -2px 0 #ff007b; }
+    100% { text-shadow: -2px 2px 0 #00ffea, 2px -2px 0 #ff007b; }
+}
+
+.glitch {
+    animation: glitch 0.5s infinite alternate;
+}
