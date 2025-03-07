@@ -1,3 +1,21 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyDdBF6E06eID9x1Ec34wCGrxyi_QN8w1Sc",
+    authDomain: "portfoliocvcounter.firebaseapp.com",
+    databaseURL: "https://portfoliocvcounter-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "portfoliocvcounter",
+    storageBucket: "portfoliocvcounter.firebasestorage.app",
+    messagingSenderId: "928088334282",
+    appId: "1:928088334282:web:025a2dbbfa5a48a51b7933"
+  };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// 🔥 Initialisation Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+
 function typeText(element, text, speed = 50) {
     let i = 0;
     element.innerHTML = "";
@@ -410,22 +428,3 @@ function incrementDownloadCount() {
 
 // Charger le compteur au démarrage de la page
 document.addEventListener("DOMContentLoaded", updateDownloadCount);
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDdBF6E06eID9x1Ec34wCGrxyi_QN8w1Sc",
-  authDomain: "portfoliocvcounter.firebaseapp.com",
-  databaseURL: "https://portfoliocvcounter-default-rtdb.europe-west1.firebasedatabase.app/",
-  projectId: "portfoliocvcounter",
-  storageBucket: "portfoliocvcounter.firebasestorage.app",
-  messagingSenderId: "928088334282",
-  appId: "1:928088334282:web:025a2dbbfa5a48a51b7933"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
