@@ -393,3 +393,20 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkFadeIn);
     checkFadeIn();
 });
+
+// Fonction pour récupérer et afficher le nombre de téléchargements
+function updateDownloadCount() {
+    let count = localStorage.getItem("cvDownloadCount") || 0;
+    document.getElementById("cv-download-count").innerText = `📊 Nombre de téléchargements : ${count}`;
+}
+
+// Fonction pour incrémenter le compteur de téléchargements
+function incrementDownloadCount() {
+    let count = localStorage.getItem("cvDownloadCount") || 0;
+    count = parseInt(count) + 1;
+    localStorage.setItem("cvDownloadCount", count);
+    updateDownloadCount();
+}
+
+// Charger le compteur au démarrage de la page
+document.addEventListener("DOMContentLoaded", updateDownloadCount);
