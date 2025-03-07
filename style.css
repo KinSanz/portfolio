@@ -969,3 +969,19 @@ body {
     margin-top: 5px;
     color: #00bcd4;
 }
+
+/* ---- Nouveau style du titre (sans glitch, en bleu simple) ---- */
+.site-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: cyan; /* Même bleu que les autres éléments du site */
+    text-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5); /* Légère lueur pour un effet propre */
+    transition: all 0.3s ease-in-out;
+}
+
+/* ---- Adaptation au mode clair ---- */
+.light-mode .site-title {
+    color: #008c9e; /* Bleu plus foncé pour être bien lisible en mode clair */
+    text-shadow: none; /* Pas de lueur en mode clair pour un look plus sobre */
+}
