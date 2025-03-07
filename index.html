@@ -139,77 +139,66 @@
         </div>
     </div>
 
-    <!-- Informations sur l'entreprise -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSDetails('company')">
-            <h3>📄 Voir les infos de l'entreprise</h3>
-        </div>
+<!-- Informations sur l'entreprise -->
+<div class="projects-container">
+    <div class="project-card" onclick="showBTSInfo('company', event)">
+        <h3>📄 Voir les infos de l'entreprise</h3>
     </div>
+</div>
 
-    <div id="bts-details" class="hidden">
-        <button onclick="closeBTSDetails()">❌ Fermer</button>
-        <h3 id="bts-title"></h3>
-        <p id="bts-description"></p>
-        <div id="bts-content"></div>
+<!-- Présence du groupe -->
+<div class="projects-container">
+    <div class="project-card" onclick="showBTSInfo('presence', event)">
+        <h3>🌍​ Voir la présence du groupe</h3>
     </div>
+</div>
 
-    <!-- Présence du groupe -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSDetails('presence')">
-            <h3>🌍​ Voir la présence du groupe</h3>
-        </div>
+<!-- Missions en alternance -->
+<div class="projects-container">
+    <div class="project-card" onclick="showBTSInfo('missions', event)">
+        <h3>📋 Mes missions</h3>
     </div>
+</div>
 
-    <!-- Missions en alternance -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSDetails('missions')">
-            <h3>📋 Mes missions</h3>
-        </div>
-    </div>
-</section>
 
 <!-- Section BTS SIO -->
 <section id="bts-sio">
     <h2>BTS SIO</h2>
 
-    <!-- Le BTS SIO, c'est quoi ? -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSInfo('bts_definition', event, this)">
-            <h3>❓ Le BTS SIO, c'est quoi ?</h3>
-        </div>
+ <!-- Questions sur le BTS -->
+<div class="projects-container">
+    <div class="project-card" onclick="ShowBTSQuestion('bts_definition', event)">
+        <h3>❓ Le BTS SIO, c'est quoi ?</h3>
     </div>
+</div>
 
-    <!-- Différences entre SISR et SLAM -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSInfo('sisr_vs_slam', event, this)">
-            <h3>🖥️ Quelles différences entre SISR et SLAM ?</h3>
-        </div>
+<div class="projects-container">
+    <div class="project-card" onclick="ShowBTSQuestion('sisr_vs_slam', event)">
+        <h3>🖥️ Quelles différences entre SISR et SLAM ?</h3>
     </div>
+</div>
 
-    <!-- Métiers après un BTS SIO -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSInfo('bts_metiers', event, this)">
-            <h3>🧑‍💻 Quels métiers après un BTS SIO ?</h3>
-        </div>
+<div class="projects-container">
+    <div class="project-card" onclick="ShowBTSQuestion('bts_metiers', event)">
+        <h3>🧑‍💻 Quels métiers après un BTS SIO ?</h3>
     </div>
+</div>
 
-    <!-- Qualités requises -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSInfo('bts_qualites', event, this)">
-            <h3>🧠​ Quelles sont les qualités requises pour réussir en BTS SIO ?</h3>
-        </div>
+<div class="projects-container">
+    <div class="project-card" onclick="ShowBTSQuestion('bts_qualites', event)">
+        <h3>🧠 Quelles sont les qualités requises pour réussir en BTS SIO ?</h3>
     </div>
+</div>
 
-    <!-- Poursuite d'études -->
-    <div class="projects-container">
-        <div class="project-card" onclick="showBTSInfo('bts_etudes', event, this)">
-            <h3>​📚 Peut-on poursuivre des études après un BTS SIO ?</h3>
-        </div>
+<div class="projects-container">
+    <div class="project-card" onclick="ShowBTSQuestion('bts_etudes', event)">
+        <h3>📚 Peut-on poursuivre des études après un BTS SIO ?</h3>
     </div>
+</div>
 
 <!-- Détails du BTS SIO -->
 <div id="bts-sio-details" class="hidden">
-    <button onclick="closeBTSInfo()">❌ Fermer</button>
+    <button onclick="closeBTSQuestion()">❌ Fermer</button>
     <h3 id="bts-sio-title"></h3>
     <p id="bts-sio-description"></p>
 </div>

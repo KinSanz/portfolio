@@ -214,8 +214,12 @@ function closeBTSDetails() {
     document.getElementById("bts-details").style.display = "none";
 }
 
-function showBTSInfo(section) {
-    const btsData = {
+// Correction de l'affichage des pop-ups BTS Questions
+function ShowBTSQuestion(section, event) {
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("Script chargé !");
+    });
+    const btsQuestions = {
         "bts_definition": {
             title: "❓​ Le BTS SIO, c'est quoi ?",
             description: "Le BTS SIO (Services Informatiques aux Organisations) est une formation post-bac qui prépare aux métiers de l’informatique. Il propose deux options : SISR (Solutions d’Infrastructure, Systèmes et Réseaux) pour l’administration des systèmes et réseaux, et SLAM (Solutions Logicielles et Applications Métiers) pour le développement d’applications."
@@ -238,11 +242,41 @@ function showBTSInfo(section) {
         }
     };
 
-    document.getElementById("bts-sio-title").innerText = btsData[section].title;
-    document.getElementById("bts-sio-description").innerText = btsData[section].description;
+    // Sélectionner la carte cliquée
+    const clickedCard = event.currentTarget;
 
-    document.getElementById("bts-sio-details").style.display = "block";
+    // Supprimer tous les anciens pop-ups BTS uniquement sous la carte sélectionnée
+    document.querySelectorAll(".bts-question-popup").forEach(el => el.remove());
+
+    // Vérifier si un pop-up est déjà affiché sous la carte, sinon l'ajouter
+    let existingPopup = clickedCard.nextElementSibling;
+    if (existingPopup && existingPopup.classList.contains("bts-question-popup")) {
+        existingPopup.remove();
+        return;
+    }
+
+    // Créer le conteneur du pop-up
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("popup-wrapper", "bts-question-popup");
+
+    // Créer le pop-up dynamique
+    const detailsDiv = document.createElement("div");
+    detailsDiv.classList.add("popup-content");
+
+    // Ajouter le contenu dynamique
+    detailsDiv.innerHTML = `
+        <button class="popup-close" onclick="this.closest('.bts-question-popup').remove()">❌ Fermer</button>
+        <h3>${btsQuestions[section].title}</h3>
+        <p>${btsQuestions[section].description}</p>
+    `;
+
+    // Ajouter le pop-up dans le wrapper
+    wrapper.appendChild(detailsDiv);
+
+    // **Insérer le pop-up directement après la carte cliquée**
+    clickedCard.parentNode.insertBefore(wrapper, clickedCard.nextSibling);
 }
+
 
 function closeBTSInfo() {
     document.getElementById("bts-sio-details").style.display = "none";
@@ -274,54 +308,74 @@ themeToggle.addEventListener("click", () => {
 
 function showBTSInfo(section, event) {
     const btsData = {
-        "bts_definition": {
-            title: "Le BTS SIO, c'est quoi ?",
-            description: "Le BTS SIO (Services Informatiques aux Organisations) est une formation post-bac qui prépare aux métiers de l’informatique. Il propose deux options : SISR (Solutions d’Infrastructure, Systèmes et Réseaux) pour l’administration des systèmes et réseaux, et SLAM (Solutions Logicielles et Applications Métiers) pour le développement d’applications."
+        "company": {
+            title: "📄 Groupe Donaldson",
+            description: "Donaldson est un leader mondial dans la fabrication de solutions de filtration.",
+            details: `
+                <ul>
+                    <li>🏢 <b>Création:</b> 1915</li>
+                    <li>📍 <b>Lieu:</b> Domjean (50420)</li>
+                    <li>🌍 <b>Siège social:</b> Minneapolis, Minnesota, USA</li>
+                    <li>🗺️ <b>Siège européen:</b> Louvain, Belgique</li>
+                    <li>💰 <b>Chiffre d’affaires:</b> 73 milliards $</li>
+                    <li>🏗️ <b>Activité:</b> Fabrication de solutions de filtration pour l’agriculture et le BTP</li>
+                </ul>
+            `
         },
-        "sisr_vs_slam": {
-            title: "Quelles différences entre SISR et SLAM ?",
-            description: "L'option SISR forme à l’administration des réseaux, serveurs, et à la sécurité informatique. L'option SLAM se concentre sur la conception, le développement et la maintenance d’applications informatiques."
+        "presence": {
+            title: "🌍 Présence du Groupe",
+            description: "<img src='images/map.png' alt='Carte de présence du groupe' style='max-width:100%; border-radius:8px;'>"
         },
-        "bts_metiers": {
-            title: "Quels métiers après un BTS SIO ?",
-            description: "Après un BTS SIO, vous pouvez devenir administrateur réseau, technicien support informatique, développeur d’applications, ou encore consultant en cybersécurité, selon l’option choisie."
-        },
-        "bts_qualites": {
-            title: "Quelles sont les qualités requises pour réussir en BTS SIO ?",
-            description: "Pour réussir en BTS SIO, il faut être curieux, méthodique, aimer résoudre des problèmes et avoir une appétence pour les technologies numériques. Un bon esprit d’équipe est également un atout."
-        },
-        "bts_etudes": {
-            title: "Peut-on poursuivre des études après un BTS SIO ?",
-            description: "Oui, il est possible de poursuivre en licence professionnelle, en école d’ingénieurs ou en bachelor spécialisé en informatique pour approfondir vos compétences."
+        "missions": {
+            title: "📋 Mes Missions",
+            description: `
+                <ul>
+                <li>📞 Support utilisateur niveau 2 : Hotline téléphonique | sollicitations physiques et messagerie</li>
+                <li>🛠️ Gestion des incidents & demandes via l’outil ServiceNow</li>
+                <li>💻 Gestion du parc informatique : installation, gestion et maintenance des ordinateurs, imprimantes et mobiles</li>
+                <li>📡 Support et maintenance de la téléphonie Cisco</li>
+                <li>🖥️ Administration système niveau 1 : serveurs d’application métier + serveurs de fichiers</li>
+                <li>🌎 Collaboration avec les équipes US et EMEA (niveaux 1 et 3)</li>
+                <li>📚 Formation des utilisateurs</li>
+                </ul>
+            `
         }
     };
 
+    // Supprimer les autres pop-ups BTS pour éviter l’accumulation
+    document.querySelectorAll(".bts-popup").forEach(el => el.remove());
 
+    // Sélectionner la carte cliquée
     const clickedCard = event.currentTarget;
 
+    // Vérifier si un pop-up est déjà affiché sous la carte, sinon l'ajouter
+    let existingPopup = clickedCard.nextElementSibling;
+    if (existingPopup && existingPopup.classList.contains("bts-popup")) {
+        existingPopup.remove();
+        return;
+    }
 
-    document.querySelectorAll(".popup-content").forEach(el => el.remove());
-
-
+    // Créer le conteneur du pop-up
     const wrapper = document.createElement("div");
-    wrapper.classList.add("popup-wrapper");
+    wrapper.classList.add("popup-wrapper", "bts-popup");
 
-
+    // Créer le pop-up dynamique
     const detailsDiv = document.createElement("div");
     detailsDiv.classList.add("popup-content");
 
-
+    // Ajouter le contenu dynamique
     detailsDiv.innerHTML = `
-        <button onclick="this.parentElement.remove()">❌ Fermer</button>
+        <button class="popup-close" onclick="this.closest('.bts-popup').remove()">❌ Fermer</button>
         <h3>${btsData[section].title}</h3>
         <p>${btsData[section].description}</p>
+        ${btsData[section].details ? btsData[section].details : ""}
     `;
 
-
+    // Ajouter le pop-up dans le wrapper
     wrapper.appendChild(detailsDiv);
 
-
-    clickedCard.parentNode.insertBefore(wrapper, clickedCard.nextSibling);
+    // **Insérer le pop-up sous la carte cliquée**
+    clickedCard.insertAdjacentElement("afterend", wrapper);
 }
 
 document.addEventListener("DOMContentLoaded", function () {

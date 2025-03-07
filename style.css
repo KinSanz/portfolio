@@ -382,6 +382,56 @@ html {
     box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.8);
 }
 
+/* ---- Correction du positionnement des pop-ups BTS ---- */
+.bts-popup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---- Style des pop-ups BTS ---- */
+.bts-popup .popup-content {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- Centrer le bouton "Fermer" ---- */
+.bts-popup .popup-close {
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    width: fit-content;
+}
+
+/* ---- Effet au survol ---- */
+.bts-popup .popup-close:hover {
+    background: #008c9e;
+}
+
+/* ---- Mode clair des pop-ups ---- */
+.light-mode .bts-popup .popup-content {
+    background: #ffffff;
+    color: #121212;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* ---- Contenu interactif ---- */
 #bts-details {
     background: #1e1e1e;
@@ -647,4 +697,247 @@ body {
 /* ---- Effet au survol des éléments interactifs ---- */
 .light-mode #dev-details ul li:hover {
     background: #d6d6d6;
+}
+
+/* ---- Correction du positionnement des pop-ups BTS ---- */
+.bts-popup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Ajoute un léger espace sous la carte */
+}
+
+/* ---- Style général des pop-ups BTS ---- */
+.bts-popup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Ajoute un léger espace sous la carte */
+    transition: all 0.3s ease-in-out;
+}
+
+/* ---- Style des boîtes des pop-ups ---- */
+.bts-popup .popup-content {
+    background: var(--card-bg); /* Utilisation du style des cartes */
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3); /* Effet néon */
+    border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Style des titres des pop-ups ---- */
+.bts-popup .popup-content h3 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: cyan; /* Couleur style tech */
+    text-shadow: 0 0 8px cyan;
+}
+
+/* ---- Liste des éléments affichés ---- */
+.bts-popup .popup-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bts-popup .popup-content ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+/* ---- Bouton de fermeture stylisé ---- */
+.bts-popup .popup-close {
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    width: fit-content;
+    box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Effet au survol ---- */
+.bts-popup .popup-close:hover {
+    background: #008c9e;
+}
+
+/* ---- Mode clair des pop-ups ---- */
+.light-mode .bts-popup .popup-content {
+    background: #ffffff;
+    color: #121212;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.light-mode .bts-popup .popup-close {
+    background: #008c9e;
+}
+
+/* ---- Style général des pop-ups Questions BTS ---- */
+.bts-question-popup {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Espace sous la carte */
+}
+
+/* ---- Style des boîtes des pop-ups ---- */
+.bts-question-popup .popup-content {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Titre stylisé ---- */
+.bts-question-popup .popup-content h3 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: cyan;
+    text-shadow: 0 0 8px cyan;
+}
+
+/* ---- Style des listes ---- */
+.bts-question-popup .popup-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bts-question-popup .popup-content ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+/* ---- Bouton de fermeture stylisé ---- */
+.bts-question-popup .popup-close {
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    width: fit-content;
+    box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Effet au survol ---- */
+.bts-question-popup .popup-close:hover {
+    background: #008c9e;
+}
+
+/* ---- Style général des pop-ups Questions BTS ---- */
+.bts-question-popup {
+    display: flex !important;  /* Assurer l'affichage */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+/* ---- Style des boîtes des pop-ups ---- */
+.bts-question-popup .popup-content {
+    background: var(--card-bg);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Titre stylisé ---- */
+.bts-question-popup .popup-content h3 {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: cyan;
+    text-shadow: 0 0 8px cyan;
+}
+
+/* ---- Style des listes ---- */
+.bts-question-popup .popup-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.bts-question-popup .popup-content ul li {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+/* ---- Bouton de fermeture stylisé ---- */
+.bts-question-popup .popup-close {
+    background: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    width: fit-content;
+    box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.5);
+}
+
+/* ---- Effet au survol ---- */
+.bts-question-popup .popup-close:hover {
+    background: #008c9e;
 }
