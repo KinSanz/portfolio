@@ -17,9 +17,33 @@ function typeText(element, text, speed = 50) {
     type();
 }
 
-function notifyDownload() {
-    document.getElementById("cv-download-form").submit();
-    console.log("Notification envoyée !");
+function notifyDownload(event) {
+    event.preventDefault(); // Empêche l'annulation de l'événement du lien
+
+    let formData = new FormData();
+    formData.append("download", "CV téléchargé");
+
+    fetch("https://formspree.io/f/xkgjwpkq", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json" // Ajout pour éviter un rejet de la requête
+        },
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Notification envoyée avec succès !");
+            alert("Votre téléchargement a été enregistré !");
+        } else {
+            console.error("Erreur lors de l'envoi de la notification.");
+        }
+    })
+    .catch(error => console.error("Erreur réseau :", error));
+
+    // Attendre 1 seconde avant de lancer le téléchargement
+    setTimeout(() => {
+        window.location.href = "images/cv.png"; // Téléchargement du CV après notification
+    }, 1000);
 }
 
 function showDetails(project) {

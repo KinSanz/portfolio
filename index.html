@@ -79,9 +79,15 @@
             <div class="cv-container">
                 <img src="images/cv.png" alt="CV de Ryan Lapotre">
             </div>
-            <a href="images/cv.png" download="CV_Ryan_LAPOTRE.png" class="cv-download" onclick="sendDownloadNotification()">
-                📥 Télécharger le CV
-            </a>            
+<!-- Formulaire caché pour envoyer la notification à Formspree -->
+<form id="cv-download-form" action="https://formspree.io/f/xkgjwpkq" method="POST">
+    <input type="hidden" name="download" value="CV téléchargé">
+</form>
+
+<!-- Lien de téléchargement du CV -->
+<a href="images/cv.png" download="CV_Ryan_LAPOTRE.png" class="cv-download" onclick="notifyDownload(event);">
+    📥 Télécharger le CV
+</a>          
         </div>
 
         <!-- Liens à droite -->
@@ -248,10 +254,5 @@
 </footer>
 
 <script src="script.js"></script>
-<form id="cv-download-form" action="https://formspree.io/f/xkgjwpkq" method="POST">
-    <input type="hidden" name="download" value="CV téléchargé">
-</form>
-
-<a href="images/cv.png" download="CV_Ryan_LAPOTRE.png" class="cv-download" onclick="notifyDownload()">📥 Télécharger le CV</a>
 </body>
 </html>
