@@ -17,10 +17,9 @@ function typeText(element, text, speed = 50) {
     type();
 }
 
-function sendDownloadNotification() {
-    fetch("send_email.php", { method: "POST" })
-    .then(response => console.log("Notification envoyée"))
-    .catch(error => console.error("Erreur lors de l'envoi de la notification", error));
+function notifyDownload() {
+    document.getElementById("cv-download-form").submit();
+    console.log("Notification envoyée !");
 }
 
 function showDetails(project) {
@@ -400,11 +399,6 @@ document.addEventListener("DOMContentLoaded", function () {
     checkFadeIn();
 });
 
-// Fonction pour récupérer et afficher le nombre de téléchargements
-function updateDownloadCount() {
-    let count = localStorage.getItem("cvDownloadCount") || 0;
-    document.getElementById("cv-download-count").innerText = `📊 Nombre de téléchargements : ${count}`;
-}
 
 // Charger le compteur au démarrage de la page
 document.addEventListener("DOMContentLoaded", updateDownloadCount);
