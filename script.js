@@ -17,6 +17,10 @@ function typeText(element, text, speed = 50) {
     type();
 }
 
+function sendDownloadNotification() {
+    fetch("send_email.php", { method: "POST" });
+}
+
 function showDetails(project) {
     const details = {
         "projet1": {
