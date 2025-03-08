@@ -20,16 +20,28 @@ function typeText(element, text, speed = 50) {
 function notifyDownload(event) {
     event.preventDefault(); // Empêche toute ouverture de lien par défaut
 
-    // Envoyer la notification via Formspree
+    // Préparation des données pour Formspree
+    let formData = new FormData();
+    formData.append("download", "CV téléchargé");
+
+    // Envoi de l'email de notification via Formspree
     fetch("https://formspree.io/f/xkgjwpkq", {
         method: "POST",
-        headers: { "Accept": "application/json" },
-        body: new FormData().append("download", "CV téléchargé")
+        headers: {
+            "Accept": "application/json" // Assure une réponse JSON correcte
+        },
+        body: formData
     })
-    .then(response => console.log("Notification envoyée avec succès !"))
+    .then(response => {
+        if (response.ok) {
+            console.log("Notification envoyée avec succès !");
+        } else {
+            console.error("Erreur lors de l'envoi de la notification.");
+        }
+    })
     .catch(error => console.error("Erreur réseau :", error));
 
-    // Forcer le téléchargement SANS ouvrir la page
+    // Attendre 500ms avant de lancer le téléchargement pour ne pas bloquer l'envoi de l'email
     setTimeout(() => {
         const link = document.createElement("a");
         link.href = "images/CV_Ryan_LAPOTRE.pdf";
@@ -37,7 +49,7 @@ function notifyDownload(event) {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-    }, 1000); // Délai pour ne pas bloquer la requête d'email
+    }, 500);
 }
 
 function forceDownload(url, filename) {
