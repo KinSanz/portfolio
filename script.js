@@ -18,32 +18,36 @@ function typeText(element, text, speed = 50) {
 }
 
 function notifyDownload(event) {
-    event.preventDefault(); // Empêche l'annulation de l'événement du lien
+    event.preventDefault(); // Empêche toute ouverture de lien par défaut
 
-    let formData = new FormData();
-    formData.append("download", "CV téléchargé");
-
+    // Envoyer la notification via Formspree
     fetch("https://formspree.io/f/xkgjwpkq", {
         method: "POST",
-        headers: {
-            "Accept": "application/json" // Ajout pour éviter un rejet de la requête
-        },
-        body: formData
+        headers: { "Accept": "application/json" },
+        body: new FormData().append("download", "CV téléchargé")
     })
-    .then(response => {
-        if (response.ok) {
-            console.log("Notification envoyée avec succès !");
-            alert("Votre téléchargement a été enregistré !");
-        } else {
-            console.error("Erreur lors de l'envoi de la notification.");
-        }
-    })
+    .then(response => console.log("Notification envoyée avec succès !"))
     .catch(error => console.error("Erreur réseau :", error));
 
-    // Attendre 1 seconde avant de lancer le téléchargement
+    // Forcer le téléchargement SANS ouvrir la page
     setTimeout(() => {
-        window.location.href = "images/cv.png"; // Téléchargement du CV après notification
-    }, 1000);
+        const link = document.createElement("a");
+        link.href = "images/CV_Ryan_LAPOTRE.pdf";
+        link.setAttribute("download", "CV_Ryan_LAPOTRE.pdf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }, 1000); // Délai pour ne pas bloquer la requête d'email
+}
+
+function forceDownload(url, filename) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", filename);
+    link.style.display = "none"; // Empêche toute ouverture visuelle
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function showDetails(project) {
